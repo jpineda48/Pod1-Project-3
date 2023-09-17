@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Birthday List</h1>
+
+{% for birthday in birthdays %}
+
+  <div class="card">
+    <a href="{% url 'detail' birthday.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ birthday.first_name }} {{ birthday.last_name }}</span>
+      
+    </div>
+    </a>
+  </div>
+{% endfor %}
+
+{% endblock %}
