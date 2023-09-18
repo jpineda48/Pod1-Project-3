@@ -10,4 +10,5 @@ urlpatterns = [
     path('birthdays/create/', views.BirthdayCreate.as_view(), name='birthdays_create'),
     path('birthdays/<int:pk>/update/', views.BirthdayUpdate.as_view(), name='birthdays_update'),
     path('birthdays/<int:pk>/delete/', views.BirthdayDelete.as_view(), name='birthdays_delete'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]
