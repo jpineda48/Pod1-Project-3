@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from.models import Birthday, GiftIdeas
+from.models import Birthday, GiftIdea
 
 #  -----------------------------------------
 
@@ -55,7 +55,8 @@ def signup(request):
 
 class BirthdayCreate(LoginRequiredMixin, CreateView):
   model = Birthday
-  fields = '__all__'
+  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'delivery_method', 'alert']
+  # fields = '__all__'
 
   def form_valid(self, form):
     form.instance.user = self.request.user 
@@ -71,21 +72,21 @@ class BirthdayDelete(LoginRequiredMixin, DeleteView):
   success_url = '/birthdays'
 
 class GiftList(LoginRequiredMixin, ListView):
-   model=GiftIdeas  
+   model=GiftIdea
 
 class GiftDetail(LoginRequiredMixin, DeleteView):
-   model=GiftIdeas
+   model=GiftIdea
 
 class GiftCreate(LoginRequiredMixin, CreateView):
-   model= GiftIdeas
+   model= GiftIdea
    fields = '__all__'
 
 class GiftUpdate(LoginRequiredMixin, UpdateView):
-   model=GiftIdeas
+   model=GiftIdea
    fields= '__all__'
 
 class GiftDelete(LoginRequiredMixin, DeleteView):
-   model = GiftIdeas
+   model = GiftIdea
    success_url = '/gifts'
                
 

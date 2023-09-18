@@ -7,7 +7,7 @@ from django.db.models import Model
 
 # Create your models here.
 
-class GiftIdeas(models.Model):
+class GiftIdea(models.Model):
     ideas= models.TextField(max_length=250, blank=True)
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Birthday(models.Model):
     delivery_method=models.TextField(max_length=250, blank=True)
     alert = models.CharField(max_length=50, blank=True)
 
-    ideas = models.ManyToManyField(GiftIdeas, blank=True)
+    ideas = models.ManyToManyField(GiftIdea, blank=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
