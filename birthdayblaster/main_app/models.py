@@ -3,10 +3,12 @@ from django.urls import reverse
 
 from django.contrib.auth.models import User
 
+from django.db.models import Model
+
 # Create your models here.
 
 class GiftIdeas(models.Model):
-    ideas= models.TextField(max_length=250)
+    ideas= models.TextField(max_length=250, blank=True)
 
     def __str__(self):
         return(self.ideas)
@@ -17,16 +19,16 @@ class GiftIdeas(models.Model):
 
 class Birthday(models.Model):
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50, blank=True)
     date =models.DateField('birthday')
-    relationship =models.CharField(max_length=50)
-    address =models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=50)
-    email =models.CharField(max_length=50)
-    delivery_method=models.TextField(max_length=250)
-    alert =models.CharField(max_length=50)
+    relationship =models.CharField(max_length=50, blank=True)
+    address =models.CharField(max_length=200, blank=True)
+    phone_number = models.CharField(max_length=50, blank=True)
+    email =models.CharField(max_length=50, blank=True)
+    delivery_method=models.TextField(max_length=250, blank=True)
+    alert = models.CharField(max_length=50, blank=True)
 
-    ideas = models.ManyToManyField(GiftIdeas)
+    ideas = models.ManyToManyField(GiftIdeas, blank=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
