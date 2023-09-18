@@ -3,6 +3,8 @@ from django.urls import reverse
 
 from django.contrib.auth.models import User
 
+from django.db.models import Model
+
 # Create your models here.
 
 class GiftIdeas(models.Model):
@@ -17,14 +19,14 @@ class GiftIdeas(models.Model):
 
 class Birthday(models.Model):
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50, null=True, blank=True)
     date =models.DateField('birthday')
-    relationship =models.CharField(max_length=50)
-    address =models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=50)
-    email =models.CharField(max_length=50)
-    delivery_method=models.TextField(max_length=250)
-    alert =models.CharField(max_length=50)
+    relationship =models.CharField(max_length=50, null=True, blank=True)
+    address =models.CharField(max_length=200, null=True, blank=True)
+    phone_number = models.CharField(max_length=50, null=True, blank=True)
+    email =models.CharField(max_length=50, null=True, blank=True)
+    delivery_method=models.TextField(max_length=250, null=True, blank=True)
+    alert = models.CharField(max_length=50, null=True, blank=True)
 
     ideas = models.ManyToManyField(GiftIdeas)
 

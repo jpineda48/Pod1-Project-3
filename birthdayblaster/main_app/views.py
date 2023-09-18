@@ -30,7 +30,7 @@ def birthdays_index(request):
 @login_required
 def birthdays_detail(request, birthday_id):
   birthday = Birthday.objects.get(id=birthday_id)
-  return render(request, 'birthdays/detail.html', { 'birthday': birthday })
+  return render(request, 'birthdays/detail.html', { 'birthday': birthday, 'BirthdayCreate' : BirthdayCreate })
 
 def signup(request):
     error_message = ''
