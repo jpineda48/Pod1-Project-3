@@ -39,6 +39,10 @@ class Birthday(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'birthday_id': self.id})
 
+    class Meta:
+        ordering = ['date']
+
+
     
     
 
