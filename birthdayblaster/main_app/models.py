@@ -3,14 +3,14 @@ from django.urls import reverse
 
 # Create your models here.
 
-class GiftIdeas(models.Model):
+class GiftIdea(models.Model):
     ideas= models.TextField(max_length=250)
 
     def __str__(self):
         return(self.ideas)
     
     def get_absolute_url(self):
-        return reverse('birthdays_detail', kwargs={'pk': self.id})
+        return reverse('gifts_detail', kwargs={'pk': self.id})
     
 
 class Birthday(models.Model):
@@ -20,11 +20,11 @@ class Birthday(models.Model):
     relationship =models.CharField(max_length=50)
     address =models.CharField(max_length=200)
     phone_number = models.CharField(max_length=50)
-    email =models.CharField(max_length=50)
+    email =models.EmailField(max_length = 254)
     delivery_method=models.TextField(max_length=250)
     alert =models.CharField(max_length=50)
 
-    ideas = models.ManyToManyField(GiftIdeas)
+    ideas = models.ManyToManyField(GiftIdea)
 
 
     def __str__(self):

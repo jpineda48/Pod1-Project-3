@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView
 
 
 
-from.models import Birthday, GiftIdeas
+from.models import Birthday, GiftIdea
 
 
 def home(request):
@@ -24,11 +24,13 @@ def birthdays_index(request):
 
 def birthdays_detail(request, birthday_id):
   birthday = Birthday.objects.get(id=birthday_id)
-  return render(request, 'birthdays/detail.html', { 'birthday': birthday })
+  giftideas = GiftIdea.objects.all()
+
+  return render(request, 'birthdays/detail.html', { 'birthday': birthday, 'giftideas': giftideas })
 
 class BirthdayCreate(CreateView):
   model = Birthday
-  fields = '__all__'
+  fields = ['first_name', 'last_name','date', 'relationship', 'address', 'phone_number', 'email', 'delivery_method' ]
 
 class BirthdayUpdate(UpdateView):
   model = Birthday
@@ -39,23 +41,27 @@ class BirthdayDelete(DeleteView):
   model = Birthday
   success_url = '/birthdays'
 
-class GiftList(ListView):
-   model=GiftIdeas  
+#views for gifts
 
-class GiftDetail(DeleteView):
-   model=GiftIdeas
+class GiftIdeaList(ListView):
+   model=GiftIdea 
+   template_name = 'gifts/index.html'
 
-class GiftCreate(CreateView):
-   model= GiftIdeas
+class GiftIdeaDetail(DetailView):
+   model=GiftIdea
+   template_name = 'gifts/detail.html'
+
+class GiftIdeaCreate(CreateView):
+   model= GiftIdea
    fields = '__all__'
 
-class GiftUpdate(UpdateView):
-   model=GiftIdeas
+class GiftIdeaUpdate(UpdateView):
+   model=GiftIdea
    fields= '__all__'
 
-class GiftDelete(DeleteView):
-   model = GiftIdeas
-   success_url = '/gifts'
+class GiftIdeaDelete(DeleteView):
+   model = GiftIdea
+   success_url = '/gifts/'
                
 
 # Create your views here.

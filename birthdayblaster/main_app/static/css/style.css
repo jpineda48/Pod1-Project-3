@@ -1,27 +1,35 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: lightgrey;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: lightgrey;
   }
-  
-  main {
-    flex: 1 0 auto;
+
+main {
+  flex: 1 0 auto;
   }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-    color: blue;
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+  color: blue;
   }
-  #logo{
-    font-family: 'Yellowtail', cursive;
-    font-size: 70px;
+#logo{
+  font-family: 'Yellowtail', cursive;
+  font-size: 70px;
   }
-  .nav-wrapper{
-    background-color: rgb(94, 148 , 247) !important;
+.nav-wrapper{
+  background-color: rgb(94, 148 , 247) !important;
   }
-  #blaster{
-    color: rgb(240, 151, 219);
+#blaster{
+  color: rgb(240, 151, 219);
   }
-  
+.avatar {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.card{
+  background-color: lightgrey;
+  }
+
