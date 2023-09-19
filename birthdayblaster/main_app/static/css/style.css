@@ -2,11 +2,12 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #e7e7e7;
+    background-color: #e7e7e7;  
+    font-family: 'Josefin Sans', sans-serif;
   }
  
 main {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
   }
   
 footer.page-footer {
@@ -14,22 +15,60 @@ footer.page-footer {
     text-align: right;
     color: white;
     background-color: rgb(94, 148 , 247);
+    font-size: 2vmin;
   }
-#logo{
-  font-family: 'Yellowtail', cursive;
-  font-size: 70px;
+
+#logo {
+    font-family: 'Comforter Brush', cursive;
+    font-size: 60px;
 }
-.nav-wrapper{
-  background-color: rgb(94, 148 , 247) !important;
+
+.nav-wrapper {
+    background-color: rgb(94, 148 , 247) !important;
+    font-size: 4vmin;
+    padding-top: 11px;
 }
-#blaster{
-  color: #ff92df;
+
+#blaster {
+    color: #ff92df;
+    font-family: 'Rubik', sans-serif;
+    font-size: 5vmin;
+    text-shadow: 2px 2px 3px #f73bbf;
 }
+
 .avatar {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+    width: 100px;
+    height: 100px;
+    background-color: red;
 }
-.card{
-  background-color: white;
-  }
+
+.card {
+    background-color: white;
+}
+
+h1 {
+    font-family: 'Happy Monkey', cursive;
+    text-align: center;
+    font-size: 7vmin;
+    color: #f4d31e;
+    text-shadow: 2px 2px 3px #faf0b7;
+}
+
+h5 {
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    font-size: 3.3vmin;
+    color: gray;
+}
+
+#navlist {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.3vmin;
+}
+
+#homebutton {
+    font-family: 'Happy Monkey', cursive;
+    font-size: 4vmin;
+    font-weight: bold;
+    color: rgb(94, 148 , 247);
+}
