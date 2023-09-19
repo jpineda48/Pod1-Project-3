@@ -1,3 +1,7 @@
+import uuid
+import boto3
+import os
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView 
@@ -8,7 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from.models import Birthday, GiftIdea
+from.models import Birthday, GiftIdea, Photo
 
 #  -----------------------------------------
 
@@ -94,3 +98,25 @@ class GiftDelete(LoginRequiredMixin, DeleteView):
                
 
 # Create your views here.
+
+def add_photo(request, birthday_id):
+    # photo-file will be the "name" attribute on the <input type="file">
+    photo_file = request.FILES.get('photo-file', None)
+    AWS_ACCESS_KEY =os.environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_KEY =os.environ['AWS_SECRET_ACCESS_KEY']
+    if photo_file:
+        s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+        # need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            # build the full url string
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            # we can assign to cat_id or cat (if you have a cat object)
+            Photo.objects.create(url=url, birthday_id=birthday_id)
+        except Exception as e:
+            print('An error occurred uploading file to S3')
+            print(e)
+    return redirect('detail', birthday_id=birthday_id)
