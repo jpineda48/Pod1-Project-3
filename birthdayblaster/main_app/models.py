@@ -38,6 +38,9 @@ class Birthday(models.Model):
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'birthday_id': self.id})
+
+    class Meta:
+        ordering = ['date']
     
 
 class Photo(models.Model):
@@ -47,8 +50,7 @@ class Photo(models.Model):
     def __str__(self):
         return f"Photo for birthday_id: {self.birthday_id} @{self.url}"
 
-    class Meta:
-        ordering = ['date']
+
 
 
     
