@@ -4,15 +4,10 @@ body {
     flex-direction: column;
     background-color: #e7e7e7;
   }
-  
+ 
 main {
   flex: 1 0 auto;
 }
-
-/* h1{
-  font-family: 'Yellowtail', cursive;
-  font-size: 70px;
-} */
 
 footer.page-footer {
   padding-top: 0;
@@ -30,7 +25,11 @@ footer.page-footer {
 #blaster{
   color: #ff92df;
 }
-
-/* .material-icons{
-  font-size: 100px
-} */
+.avatar {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.card{
+  background-color: lightgrey;
+  }

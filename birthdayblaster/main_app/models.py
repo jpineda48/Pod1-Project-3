@@ -14,7 +14,7 @@ class GiftIdea(models.Model):
         return(self.ideas)
     
     def get_absolute_url(self):
-        return reverse('birthdays_detail', kwargs={'pk': self.id})
+        return reverse('gifts_detail', kwargs={'pk': self.id})
     
 
 class Birthday(models.Model):
