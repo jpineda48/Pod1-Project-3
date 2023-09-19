@@ -4,27 +4,27 @@ body {
     flex-direction: column;
     background-color: #e7e7e7;
   }
-
+ 
 main {
   flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-    color: white;
-    background-color: rgb(94, 148 , 247);
-  }
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+  color: white;
+  background-color: rgb(94, 148 , 247);
+}
 #logo{
   font-family: 'Yellowtail', cursive;
   font-size: 70px;
-  }
+}
 .nav-wrapper{
   background-color: rgb(94, 148 , 247) !important;
-  }
-  #blaster{
-    color: #ff92df;
-  }
+}
+#blaster{
+  color: #ff92df;
+}
 .avatar {
   width: 100px;
   height: 100px;
@@ -33,4 +33,3 @@ main {
 .card{
   background-color: lightgrey;
   }
-
