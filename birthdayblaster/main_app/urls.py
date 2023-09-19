@@ -10,6 +10,7 @@ urlpatterns = [
     path('birthdays/create/', views.BirthdayCreate.as_view(), name='birthdays_create'),
     path('birthdays/<int:pk>/update/', views.BirthdayUpdate.as_view(), name='birthdays_update'),
     path('birthdays/<int:pk>/delete/', views.BirthdayDelete.as_view(), name='birthdays_delete'),
+    path('birthdays/<int:birthday_id>/add_photo/', views.add_photo, name='add_photo'),
     #need several urls for ideas to work
     path('gifts/', views.GiftList.as_view(), name='gifts_index'),
     path('gifts/<int:pk>/', views.GiftDetail.as_view(), name='gifts_detail'),

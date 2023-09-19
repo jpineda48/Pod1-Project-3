@@ -25,12 +25,24 @@ main {
   #blaster{
     color: #ff92df;
   }
-.avatar {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+#avatar{
+  vertical-align: middle;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
-.card{
-  background-color: lightgrey;
-  }
+#bday{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#upload{
+  
+  margin: 0;
+  position:relative;
+  display: flex;
+}
+
+
 
