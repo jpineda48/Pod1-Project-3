@@ -1,43 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Birthday Details</h1>
 
-<div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ birthday.first_name }} {{ birthday.last_name }}</span>
-    <p>Birthday Day: {{ birthday.date }}</p>
-    <p>Relationship:{{ birthday.relationship }}</p>
-    <p>Address:{{ birthday.address }}</p>
-    <p>Phone Number: {{ birthday.phone_number }}</p>
-    <p>How to Reach Out: {{ birthday.delivery_method }}</p>
-    <p>How in Advanced would you like to be alerted? {{ birthday.alert }}</p>
 
-   
-  </div>
-  <div class="card-action">
+<h1 class="center-align">{{ birthday.first_name }}'s Birthday!</h1>
+  <div class="card">
+    <div class="card-content">
+      <h5 class="center-align">{{ birthday.first_name }} {{ birthday.last_name }}</h5>
+      <p class="center-align">Birthday Day: {{ birthday.date }}</p>
+      <p class="center-align">{{ birthday.relationship }}</p>
+    </div >
+  <div class="card-action center-align">
     <a href="{% url 'birthdays_update' birthday.id %}">Edit</a>
     <a href="{% url 'birthdays_delete' birthday.id %}">Delete</a>
   </div>
   <hr>
-  <div class="row">
-    <div class="col s6">
-      <h3>Gift Ideas for {{ birthday.first_name}}</h3>
-      {% if birthday.gifts.count %}
-        {% for gift in birthday.gifts.all %}
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title">
-                A <span">{{ idea.name }}</span>
-              </span>
-            </div>
-          </div>
-        {% endfor %}
-      {% else %}
-        <h5>No Gifts 😿</h5>
-      {% endif %}
+    <div class="container">
+    <h5 class="center-align">Show {{ birthday.first_name}} some love!</h5>
+    {% if birthday.ideas.count %}
+    {% for gift in birthday.ideas.all %}
+    <ul class="collection">
+      <li class="collection-item">{{ gift.ideas }} </li>
+    </ul>
     </div>
-  
+  </div>
+{% endfor %}
+{% else %}
+<h5>No Gifts 😿</h5>
+{% endif %}
+</div>
+</div>
 </div>
 
 {% endblock %}
