@@ -47,6 +47,10 @@ class Photo(models.Model):
     def __str__(self):
         return f"Photo for birthday_id: {self.birthday_id} @{self.url}"
 
+    class Meta:
+        ordering = ['date']
+
+
     
     
 

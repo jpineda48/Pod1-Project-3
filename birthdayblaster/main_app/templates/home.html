@@ -4,6 +4,36 @@
     <title>Birthday Blaster</title>
 </head>
 <body>
-    <h1> Welcome to the Birthday Blaster!</h1>
-    
+    <h1> Welcome to Birthday Blaster</h1>
+    <h5>A fun and festive event reminder application, designed to help you remember all those birthdays that have fallen off your radar!</h5>
+
+    <div>
+        <div class="row">
+            <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                <img src="static/images/1.png">
+                <span class="card-title"></span>
+                <a href="{% url 'about' %}" class="btn-floating btn-large halfway-fab waves-effect waves-light yellow"><i class="material-icons">description</i></a>
+                </div>
+                <div class="card-content">
+                <p id="homebutton">Learn More!</p>
+                </div>
+            </div>
+            </div>
+
+            <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                <img src="static/images/2.png">
+                <span class="card-title"></span>
+                <a href="{% url 'signup' %}" class="btn-floating btn-large halfway-fab waves-effect waves-light yellow"><i class="material-icons">launch</i></a>
+                </div>
+                <div class="card-content">
+                <p id="homebutton">Join Birthday Blaster!</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -9,7 +9,8 @@
     <a href="{% url 'detail' birthday.id %}">
     <div class="card-content">
       <span class="card-title">{{ birthday.first_name }} {{ birthday.last_name }}</span>
-      
+      <p>Birthday: {{ birthday.date }}</p>
+      <p>Photo:</p>
     </div>
     </a>
   </div>
