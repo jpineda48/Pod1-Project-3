@@ -6,7 +6,7 @@
 <h1 class="center-align">{{ birthday.first_name }}'s Birthday!</h1>
   <div class="card">
     <div class="card-content" id="bday">
-      {% for photo in birthday.photo_set.all %}
+    {% for photo in birthday.photo_set.all %}
       <img id="avatar" class="center-align circle responsive-img"  src="{{photo.url}}">
     {% empty %}
       <div class="card-panel teal-text center-align">No Photos Uploaded</div>
