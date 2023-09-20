@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 {% if object %}
     <h1>Edit <span class="teal-text">{{object.name}}</span></h1>
   {% else %}
@@ -15,7 +16,7 @@
           {{ form.as_table }}
         </table>
       <div class="row">
-        <input type="submit" value="Submit!" class="waves-effect waves-light btn-large col s4 offset-s4 #ff80ab pink accent-1">
+        <input type="submit" value="Submit!" class="waves-effect waves-light btn-large col s4 offset-s4 #ff80ab pink accent-1" id="add-submit">
       </div>
   </form>
   <br>
