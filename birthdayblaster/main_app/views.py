@@ -1,6 +1,4 @@
-import uuid
-import boto3
-import os
+
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -13,6 +11,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from.models import Birthday, GiftIdea, Photo
+
+import uuid
+import boto3
+import os
 
 #  -----------------------------------------
 
@@ -78,8 +80,10 @@ class BirthdayDelete(LoginRequiredMixin, DeleteView):
   model = Birthday
   success_url = '/birthdays'
 
+
 class GiftList(LoginRequiredMixin, ListView):
    model=GiftIdea
+   template_name= 'gifts/detail.html'
 
 class GiftDetail(LoginRequiredMixin, DeleteView):
    model=GiftIdea
@@ -87,10 +91,24 @@ class GiftDetail(LoginRequiredMixin, DeleteView):
 class GiftCreate(LoginRequiredMixin, CreateView):
    model= GiftIdea
    fields = '__all__'
+   success_url = '/birthdays'
+
+ 
+
+   def form_valid(self, form):
+    form.instance.user = self.request.user 
+    birthday_id = self.kwargs['birthday_id']
+    new_gift= form.save(commit=False)
+    print('FORM', new_gift)
+    Birthday.objects.get(id=birthday_id).ideas.add(30)
+    # form.instance.ideas = self.request.birthday
+    return super().form_valid(form)
 
 class GiftUpdate(LoginRequiredMixin, UpdateView):
    model=GiftIdea
    fields= '__all__'
+   success_url = '/gifts'
+
 
 class GiftDelete(LoginRequiredMixin, DeleteView):
    model = GiftIdea
@@ -102,8 +120,8 @@ class GiftDelete(LoginRequiredMixin, DeleteView):
 def add_photo(request, birthday_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
-    AWS_ACCESS_KEY =os.environ['AWS_ACCESS_KEY']
-    AWS_SECRET_ACCESS_KEY =os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_ACCESS_KEY = os.environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     if photo_file:
         s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
         # need a unique "key" for S3 / needs image file extension too

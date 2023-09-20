@@ -6,19 +6,19 @@
 <h1 class="center-align">{{ birthday.first_name }}'s Birthday!</h1>
   <div class="card">
     <div class="card-content" id="bday">
-      <form action="{% url 'add_photo' birthday.id %}" enctype="multipart/form-data" method="POST" class="row"id="upload">
-        {% csrf_token %}
-        
-        <br><br>
-        <button class="waves-effect waves-teal btn-flat" type="submit" class="btn">Upload Photo</button>
-        <input type="file" name="photo-file">
-    </form>
-      {% for photo in birthday.photo_set.all %}
+    {% for photo in birthday.photo_set.all %}
       <img id="avatar" class="center-align circle responsive-img"  src="{{photo.url}}">
     {% empty %}
       <div class="card-panel teal-text center-align">No Photos Uploaded</div>
     {% endfor %}
-    
+    <form action="{% url 'add_photo' birthday.id %}" enctype="multipart/form-data" method="POST" class="" id="photoupload">
+      {% csrf_token %}
+      <input type="file" name="photo-file">
+      <br><br>
+      <button type="submit" class="btn" id="upload">Upload Photo</button>
+  </form>
+</div>
+  
  
 
   
@@ -26,28 +26,32 @@
       <h5 class="center-align">{{ birthday.first_name }} {{ birthday.last_name }}</h5>
       <p class="center-align">Birthday Day: {{ birthday.date }}</p>
       <p class="center-align">{{ birthday.relationship }}</p>
-    </div >
+    </div>
+
   <div class="card-action center-align">
     <a href="{% url 'birthdays_update' birthday.id %}">Edit</a>
     <a href="{% url 'birthdays_delete' birthday.id %}">Delete</a>
   </div>
   <hr>
     
-    <h5 class="center-align">Show {{ birthday.first_name}} some love!</h5>
+  
     <div class="container">
+      <h1>test</h1>
+      <p> {{ birthday }}</p>
     {% if birthday.ideas.count %}
     {% for gift in birthday.ideas.all %}
     <ul class="collection">
       <li class="collection-item">{{ gift.ideas }} </li>
     </ul>
     </div>
-  </div>
+  
 {% endfor %}
 {% else %}
-<h5>No Gifts 😿</h5>
+<h5>Show some Love!</h5>
 {% endif %}
 </div>
 </div>
 </div>
 
+<a href="{% url 'gifts_create' birthday.id %}" id="navlist"><button>Add A Gift Idea</button></a>
 {% endblock %}

@@ -14,7 +14,7 @@ footer.page-footer {
     padding-top: 0;
     text-align: right;
     color: white;
-    background-color: rgb(94, 148 , 247);
+    background-color: #4b96ff;
     font-size: 2vmin;
   }
 
@@ -24,7 +24,7 @@ footer.page-footer {
 }
 
 .nav-wrapper {
-    background-color: rgb(94, 148 , 247) !important;
+    background-color: #4b96ff !important;
     font-size: 4vmin;
     padding-top: 11px;
 }
@@ -84,5 +84,12 @@ h5 {
     font-family: 'Happy Monkey', cursive;
     font-size: 4vmin;
     font-weight: bold;
-    color: rgb(94, 148 , 247);
+    color: #4b96ff;
+}
+#photoupload{
+  position: absolute;
+  top: 40px; left: 40px;
+}
+#upload {
+  color:red;
 }
