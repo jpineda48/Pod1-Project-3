@@ -102,8 +102,8 @@ class GiftDelete(LoginRequiredMixin, DeleteView):
 def add_photo(request, birthday_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
-    AWS_ACCESS_KEY =os.environ['AWS_ACCESS_KEY']
-    AWS_SECRET_ACCESS_KEY =os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_ACCESS_KEY = os.environ['AWS_ACCESS_KEY']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     if photo_file:
         s3 = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
         # need a unique "key" for S3 / needs image file extension too
