@@ -5,12 +5,18 @@
 
 {% for birthday in birthdays %}
 
-  <div class="card">
+  <div class="card row">
     <a href="{% url 'detail' birthday.id %}">
-    <div class="card-content">
+    <div class="card-content col s6">
       <span class="card-title">{{ birthday.first_name }} {{ birthday.last_name }}</span>
       <p>Birthday: {{ birthday.date }}</p>
-      <p>Photo:</p>
+    </div>
+    <div class="card-content col s6">
+        {% for photo in birthday.photo_set.all %}
+          <img id="avatar" class="right circle responsive-img" src="{{photo.url}}">
+        {% empty %}
+          <div class="card right col s12 m6 l3 white-text center-align #ff80ab pink accent-1">No Photos Uploaded</div>
+        {% endfor %}
     </div>
     </a>
   </div>
