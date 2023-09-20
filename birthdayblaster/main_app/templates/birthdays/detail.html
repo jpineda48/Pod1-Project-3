@@ -6,19 +6,20 @@
 <h1 class="center-align">{{ birthday.first_name }}'s Birthday!</h1>
   <div class="card">
     <div class="card-content" id="bday">
+      <form action="{% url 'add_photo' birthday.id %}" enctype="multipart/form-data" method="POST" class="row"id="upload">
+        {% csrf_token %}
+        
+        <br><br>
+        <button class="waves-effect waves-teal btn-flat" type="submit" class="btn">Upload Photo</button>
+        <input type="file" name="photo-file">
+    </form>
       {% for photo in birthday.photo_set.all %}
       <img id="avatar" class="center-align circle responsive-img"  src="{{photo.url}}">
     {% empty %}
       <div class="card-panel teal-text center-align">No Photos Uploaded</div>
     {% endfor %}
     
-    <form action="{% url 'add_photo' birthday.id %}" enctype="multipart/form-data" method="POST" class="row"id="upload">
-      {% csrf_token %}
-      
-      <br><br>
-      <button type="submit" class="btn">Upload Photo</button>
-      <input type="file" name="photo-file">
-  </form>
+ 
 
   
 
@@ -31,8 +32,9 @@
     <a href="{% url 'birthdays_delete' birthday.id %}">Delete</a>
   </div>
   <hr>
-    <div class="container">
+    
     <h5 class="center-align">Show {{ birthday.first_name}} some love!</h5>
+    <div class="container">
     {% if birthday.ideas.count %}
     {% for gift in birthday.ideas.all %}
     <ul class="collection">
