@@ -7,7 +7,7 @@
 
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete!" class="btn">
-    <a href="{% url 'detail' birthday.id %}">Cancel</a>
+    <input type="submit" value="Yes - Delete!" class="btn-large white-text center-align #fdd835 yellow darken-1">
+    <a href="{% url 'detail' birthday.id %}" class="btn-large white-text center-align #ff80ab pink accent-1">Cancel</a>
   </form>
 {% endblock %}

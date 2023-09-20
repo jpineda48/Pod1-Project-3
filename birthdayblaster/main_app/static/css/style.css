@@ -20,7 +20,7 @@ footer.page-footer {
 
 #logo {
     font-family: 'Comforter Brush', cursive;
-    font-size: 60px;
+    font-size: 8vmin;
 }
 
 .nav-wrapper {
@@ -86,10 +86,26 @@ h5 {
     font-weight: bold;
     color: #4b96ff;
 }
-#photoupload{
-  position: absolute;
-  top: 40px; left: 40px;
+
+.about-desc {
+    font-size: 3.2vmin;
+    line-height: normal;
+    color: grey;
 }
-#upload {
-  color:red;
+
+.ab-button {
+    font-weight: bold;
+    font-size: 2vmin;
+}
+
+#add-submit {
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    font-size: 3vmin;
+}
+
+.responsive-table {
+    font-size: 1vmin;
+    
 }

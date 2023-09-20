@@ -3,20 +3,36 @@
 
     <h1>Birthday Blaster</h1>
 
-    <div>
+
+
+    <div class="row">
         <div>
           <div class="card white">
-            <div class="card-content">
-              <span class="#448aff blue-text text-accent-2">Birthday Blaster is a fun and festive event reminder application, designed to help you remember all those birthdays that have fallen off your radar. How many times have you forgotten to wish a loved one, friend, or co-worked “happy birthday?” Too many times to count! With Birthday Blaster, set up automated email reminders at personalized intervals to ensure you don’t forget anymore birthdays! You can also add important information and details about each special person, such as favorite colors, interests, hobbies, gift ideas, location,and more!</span>
+            <div class="card-content center-align">
+              <br>
+              <span class="about-desc ">How many times have you forgotten to wish a loved one, friend, or co-worked “happy birthday?” Too many times to count! We can help! With Birthday Blaster, set up automated email reminders at personalized intervals to ensure you don’t forget anymore birthdays! You can also add important information and details about each special person, such as favorite colors, interests, hobbies, gift ideas, location, and so much more!</span>
+                <br>
+                <br>
+              <div>
+                <div class="row">
+                  <div class="col s12 m6">
+                    <a href="{% url 'login' %}" class="ab-button left waves-effect waves-light btn-large #448aff blue accent-2">Login to Your Account</a>
+                  </div>
+                  <div class="col s12 m6">
+                    <a href="{% url 'signup' %}" class="ab-button right waves-effect waves-light btn-large #ff80ab pink accent-1">Sign Up Now!</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-image">
+                <img class="responsive-img" src="/static/images/6.png">
+              </div>
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <div>
-        <a href="{% url 'signup' %}" class="waves-effect waves-light btn #ff80ab pink accent-1">Sign Up Now!</a>
-        <br>
-        <br>
-        <a href="{% url 'login' %}" class="waves-effect waves-light btn #ffeb3b yellow">Login to Your Account</a>
-      </div>
+
+
+
 {% endblock %}
