@@ -105,7 +105,28 @@ h5 {
     font-size: 3vmin;
 }
 
-.responsive-table {
-    font-size: 1vmin;
-    
+label {
+    font-size: 3vmin;
 }
+
+.datepicker-date-display {
+    background-color: #ff92df !important;
+}
+
+.btn-flat {
+    color: #ff92df !important;
+}
+
+.is-today {
+    background-color: #ff92df !important;
+}
+
+#index-text {
+    font-size: 5vmin;
+}
+
+#index-birthday {
+    font-size: 3vmin;
+    color: gray;
+}
+

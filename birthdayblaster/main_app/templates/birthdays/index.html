@@ -8,8 +8,8 @@
   <div class="card row">
     <a href="{% url 'detail' birthday.id %}">
     <div class="card-content col s6">
-      <span class="card-title">{{ birthday.first_name }} {{ birthday.last_name }}</span>
-      <p>Birthday: {{ birthday.date }}</p>
+      <span class="card-title" id="index-text">{{ birthday.first_name }} {{ birthday.last_name }}</span>
+      <p id="index-birthday">Birthday: {{ birthday.date }}</p>
     </div>
     <div class="card-content col s6">
         {% for photo in birthday.photo_set.all %}
