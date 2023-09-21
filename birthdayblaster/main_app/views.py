@@ -73,8 +73,6 @@ class BirthdayCreate(LoginRequiredMixin, CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user 
     return super().form_valid(form)
-  
-  
 
 class BirthdayUpdate(LoginRequiredMixin, UpdateView):
   model = Birthday
@@ -83,40 +81,7 @@ class BirthdayUpdate(LoginRequiredMixin, UpdateView):
 
 class BirthdayDelete(LoginRequiredMixin, DeleteView):
   model = Birthday
-  success_url = '/birthdays'
-
-
-class GiftList(LoginRequiredMixin, ListView):
-   model=GiftIdea
-   template_name= 'gifts/detail.html'
-
-class GiftDetail(LoginRequiredMixin, DeleteView):
-   model=GiftIdea
-
-class GiftCreate(LoginRequiredMixin, CreateView):
-   model= GiftIdea
-   fields = '__all__'
-   success_url = '/birthdays'
-
-   def form_valid(self, form):
-    form.instance.user = self.request.user 
-    birthday_id = self.kwargs['birthday_id']
-    new_gift= form.save(commit=False)
-    print('FORM', new_gift)
-    Birthday.objects.get(id=birthday_id).ideas.add(new_gift)
-    # form.instance.ideas = self.request.birthday
-    return super().form_valid(form)
-
-class GiftUpdate(LoginRequiredMixin, UpdateView):
-   model=GiftIdea
-   fields= '__all__'
-   success_url = '/gifts'
-
-
-class GiftDelete(LoginRequiredMixin, DeleteView):
-   model = GiftIdea
-   success_url = '/gifts'
-               
+  success_url = '/birthdays'            
 
 # Create your views here.
 
@@ -141,13 +106,6 @@ def add_photo(request, birthday_id):
             print('An error occurred uploading file to S3')
             print(e)
     return redirect('detail', birthday_id=birthday_id)
-
-
-def assoc_idea(request, birthday_id, giftideas_id):
-  # Note that you can pass a toy's id instead of the whole toy object
-    Birthday.objects.get(id=birthday_id).ideas.add(giftideas_id)
-    return redirect('detail', birthday_id=birthday_id)
-
 
 def add_giftidea(request, birthday_id):
   # create a ModelForm instance using the data in request.POST
