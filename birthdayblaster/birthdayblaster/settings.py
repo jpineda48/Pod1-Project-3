@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 import environ
+import os
 
 environ.Env()
 environ.Env.read_env()
@@ -86,6 +87,13 @@ DATABASES = {
     }
 }
 
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'bb.i.r.t.h.d.a.y.b.l.a.s.t.e.rr@gmail.com'
+EMAIL_HOST_PASSWORD = 'rhyn yrpe cigl vnfq'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
