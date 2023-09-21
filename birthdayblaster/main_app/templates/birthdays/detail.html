@@ -13,7 +13,7 @@
     {% endfor %}
     <form action="{% url 'add_photo' birthday.id %}" enctype="multipart/form-data" method="POST" class="" id="photoupload">
       {% csrf_token %}
-      <input type="file" name="photo-file">
+      <input type="file" name="photo-file" class="choosefile">
       <br><br>
       <button type="submit" class="btn" id="upload">Upload Photo</button>
   </form>
@@ -26,6 +26,7 @@
       <h5 class="center-align">{{ birthday.first_name }} {{ birthday.last_name }}</h5>
       <p class="center-align">Birthday Day: {{ birthday.date }}</p>
       <p class="center-align">{{ birthday.relationship }}</p>
+      <p>Notes about {{birthday.notes}}: {{birthday.delivery_method}}</p>
     </div>
 
   <div class="card-action center-align">
@@ -35,22 +36,31 @@
   <hr>
     
   
-    <div class="container">
-      <h1>test</h1>
-      <p> {{ birthday }}</p>
-    {% if birthday.ideas.count %}
-    {% for gift in birthday.ideas.all %}
-    <ul class="collection">
-      <li class="collection-item">{{ gift.ideas }} </li>
-    </ul>
-    </div>
-  
-{% endfor %}
-{% else %}
-<h5>Show some Love!</h5>
-{% endif %}
-</div>
-</div>
+
+
+<div class="col s6">
+  <h3>Show {{birthday.first_name }} some love!</h3>
+  <p>List some gift ideas or some of your favorite things about {{birthday.first_name }}</p>
+
+  {% if ideas.count %}
+    {% for idea in ideas.all %}
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            <p>{{ idea.ideas}}</p>
+          </span>
+        </div>
+        <div class="card-action">
+          <form action="" method="POST">
+            {% csrf_token %}
+
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h5>{{cat.name}} Already Has All Toys Available</h5>
+  {% endif %}
 </div>
 
 <a href="{% url 'gifts_create' birthday.id %}" id="navlist"><button>Add A Gift Idea</button></a>

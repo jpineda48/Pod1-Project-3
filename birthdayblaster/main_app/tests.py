@@ -23,7 +23,10 @@ class BirthdayReminderTestCase(TestCase):
         # Test user
         test_user = User.objects.create_user(
             username="testuser",
-            password="testpassword"
+            password="testpassword",
+            ###
+            email="srtm88@gmail.com"  ### Test email address to receive test email notification ###
+            ###
         )
 
         # Test birthday
@@ -32,9 +35,6 @@ class BirthdayReminderTestCase(TestCase):
             first_name="Test",
             last_name="User",
             date=future_date,
-            ###
-            email="jacquelinepineda48@gmail.com",  ### Test email address to receive test email notification ###
-            ###
             user=test_user
         )
 

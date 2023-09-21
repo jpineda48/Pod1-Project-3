@@ -1,101 +1,100 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: #e7e7e7;  
-    font-family: 'Josefin Sans', sans-serif;
-  }
- 
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #e7e7e7;  
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 main {
-    flex: 1 0 auto;
-  }
-  
+  flex: 1 0 auto;
+}
+
 footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-    color: white;
-    background-color: #4b96ff;
-    font-size: 2vmin;
-  }
+  padding-top: 0;
+  text-align: right;
+  color: white;
+  background-color: #4b96ff;
+  font-size: 2vmin;
+}
 
 #logo {
-    font-family: 'Comforter Brush', cursive;
-    font-size: 8vmin;
+  font-family: 'Comforter Brush', cursive;
+  font-size: 60px;
 }
 
 .nav-wrapper {
-    background-color: #4b96ff !important;
-    font-size: 4vmin;
-    padding-top: 11px;
+  background-color: #4b96ff !important;
+  font-size: 4vmin;
+  padding-top: 11px;
 }
 
 #blaster {
-    color: #ff92df;
-    font-family: 'Rubik', sans-serif;
-    font-size: 5vmin;
-    text-shadow: 2px 2px 3px #f73bbf;
+  color: #ff92df;
+  font-family: 'Rubik', sans-serif;
+  font-size: 5vmin;
+  text-shadow: 2px 2px 3px #f73bbf;
 }
 
 #avatar {
-  vertical-align: middle;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+vertical-align: middle;
+width: 100px;
+height: 100px;
+border-radius: 50%;
 }
 
 #bday {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
 }
 
 #upload {
-  margin: 0;
-  position:relative;
-  display: flex;
+margin: 0;
+position:relative;
+display: flex;
 }
 
 .card {
-    background-color: white;
+  background-color: white;
 }
 
 h1 {
-    font-family: 'Happy Monkey', cursive;
-    text-align: center;
-    font-size: 7vmin;
-    color: #f4d31e;
-    text-shadow: 2px 2px 3px #faf0b7;
+  font-family: 'Happy Monkey', cursive;
+  text-align: center;
+  font-size: 7vmin;
+  color: #f4d31e;
+  text-shadow: 2px 2px 3px #faf0b7;
 }
 
 h5 {
-    font-family: 'Josefin Sans', sans-serif;
-    text-align: center;
-    font-size: 3.3vmin;
-    color: gray;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  font-size: 3.3vmin;
+  color: gray;
 }
 
 #navlist {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 3.3vmin;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 3.3vmin;
 }
 
 #homebutton {
-    font-family: 'Happy Monkey', cursive;
-    font-size: 4vmin;
-    font-weight: bold;
-    color: #4b96ff;
+  font-family: 'Happy Monkey', cursive;
+  font-size: 4vmin;
+  font-weight: bold;
+  color: #4b96ff;
 }
+#photoupload{
+position: absolute;
+top: 40px; left: 40px;
+width: 20px;
+height: 20px;
 
-.about-desc {
-    font-size: 3.2vmin;
-    line-height: normal;
-    color: grey;
 }
-
-.ab-button {
-    font-weight: bold;
-    font-size: 2vmin;
+.choosefile {
+width: 96px;
 }
 
 #add-submit {
@@ -128,5 +127,9 @@ label {
 #index-birthday {
     font-size: 3vmin;
     color: gray;
+}
+
+.btn{
+background-color: #daedb3 !important;
 }
 

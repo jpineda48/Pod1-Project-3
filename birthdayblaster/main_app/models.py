@@ -25,7 +25,7 @@ class Birthday(models.Model):
     address =models.CharField(max_length=200, blank=True)
     phone_number = models.CharField(max_length=50, blank=True)
     email =models.CharField(max_length=50, blank=True)
-    delivery_method=models.TextField(max_length=250, blank=True)
+    notes=models.TextField(max_length=250, blank=True)
     alert = models.CharField(max_length=50, blank=True)
 
     ideas = models.ManyToManyField(GiftIdea, blank=True)
