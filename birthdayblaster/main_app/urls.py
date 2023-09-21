@@ -12,11 +12,12 @@ urlpatterns = [
     path('birthdays/<int:pk>/delete/', views.BirthdayDelete.as_view(), name='birthdays_delete'),
     path('birthdays/<int:birthday_id>/add_photo/', views.add_photo, name='add_photo'),
     #need several urls for ideas to work
-    path('gifts/', views.GiftList.as_view(), name='gifts_index'),
-    path('gifts/<int:pk>/', views.GiftDetail.as_view(), name='gifts_detail'),
-    path('birthdays/<int:birthday_id>/gifts/create/', views.GiftCreate.as_view(), name='gifts_create'),
-    path('gifts/<int:pk>/update/', views.GiftUpdate.as_view(), name='gifts_update'),
-    path('gifts/<int:pk>/delete/', views.GiftDelete.as_view(), name='gifts_delete'),
+    # path('gifts/', views.GiftList.as_view(), name='gifts_index'),
+    # path('gifts/<int:pk>/', views.GiftDetail.as_view(), name='gifts_detail'),
+    # path('birthdays/<int:birthday_id>/gifts/create/', views.GiftCreate.as_view(), name='gifts_create'),
+    # path('gifts/<int:pk>/update/', views.GiftUpdate.as_view(), name='gifts_update'),
+    # path('gifts/<int:pk>/delete/', views.GiftDelete.as_view(), name='gifts_delete'),
+    path('birthdays/<int:birthday_id>/add_gift/', views.add_giftidea, name='add_giftidea'),
     
     path('accounts/signup/', views.signup, name='signup'),
 ]
