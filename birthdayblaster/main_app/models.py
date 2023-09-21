@@ -7,14 +7,7 @@ from django.db.models import Model
 
 # Create your models here.
 
-class GiftIdea(models.Model):
-    ideas= models.TextField(max_length=250, blank=True)
 
-    def __str__(self):
-        return(self.ideas)
-    
-    def get_absolute_url(self):
-        return reverse('gifts_detail', kwargs={'pk': self.id})
     
 
 class Birthday(models.Model):
@@ -28,7 +21,6 @@ class Birthday(models.Model):
     delivery_method=models.TextField(max_length=250, blank=True)
     alert = models.CharField(max_length=50, blank=True)
 
-    ideas = models.ManyToManyField(GiftIdea, blank=True)
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -41,6 +33,16 @@ class Birthday(models.Model):
 
     class Meta:
         ordering = ['date']
+
+class GiftIdea(models.Model):
+    ideas= models.TextField(max_length=250, blank=True)
+    birthday = models.ForeignKey(Birthday, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return(self.ideas)
+    
+    def get_absolute_url(self):
+        return reverse('gifts_detail', kwargs={'pk': self.id})        
     
 
 class Photo(models.Model):

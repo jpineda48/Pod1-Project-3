@@ -17,6 +17,8 @@ urlpatterns = [
     path('birthdays/<int:birthday_id>/gifts/create/', views.GiftCreate.as_view(), name='gifts_create'),
     path('gifts/<int:pk>/update/', views.GiftUpdate.as_view(), name='gifts_update'),
     path('gifts/<int:pk>/delete/', views.GiftDelete.as_view(), name='gifts_delete'),
+    path('gifts/<int:birthday_id>/assoc_idea/<int:giftidea_id>/', views.assoc_idea, name='assoc_toy'),
+
     
     path('accounts/signup/', views.signup, name='signup'),
 ]

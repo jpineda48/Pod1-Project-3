@@ -36,9 +36,12 @@ def birthdays_index(request):
 @login_required
 def birthdays_detail(request, birthday_id):
   birthday = Birthday.objects.get(id=birthday_id)
-  giftideas = GiftIdea.objects.all()
+  id_list = birthday.ideas.all().values_list('id')
+  ideas_to_add = GiftIdea.objects.exclude(id__in=id_list)
+  print(id_list)
+  
 
-  return render(request, 'birthdays/detail.html', { 'birthday': birthday, 'giftideas': giftideas })
+  return render(request, 'birthdays/detail.html', { 'birthday': birthday, 'ideas':ideas_to_add })
 
 
 def signup(request):
@@ -70,11 +73,13 @@ class BirthdayCreate(LoginRequiredMixin, CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user 
     return super().form_valid(form)
+  
+  
 
 class BirthdayUpdate(LoginRequiredMixin, UpdateView):
   model = Birthday
   # Let's disallow the renaming of a cat by excluding the name field!
-  fields = '__all__'
+  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'delivery_method', 'alert']
 
 class BirthdayDelete(LoginRequiredMixin, DeleteView):
   model = Birthday
@@ -93,14 +98,13 @@ class GiftCreate(LoginRequiredMixin, CreateView):
    fields = '__all__'
    success_url = '/birthdays'
 
- 
-
    def form_valid(self, form):
     form.instance.user = self.request.user 
     birthday_id = self.kwargs['birthday_id']
     new_gift= form.save(commit=False)
     print('FORM', new_gift)
-    Birthday.objects.get(id=birthday_id).ideas.add(30)
+    Birthday.objects.get(id=birthday_id).ideas.add(7
+                                                   )
     # form.instance.ideas = self.request.birthday
     return super().form_valid(form)
 
@@ -137,4 +141,10 @@ def add_photo(request, birthday_id):
         except Exception as e:
             print('An error occurred uploading file to S3')
             print(e)
+    return redirect('detail', birthday_id=birthday_id)
+
+
+def assoc_idea(request, birthday_id, giftideas_id):
+  # Note that you can pass a toy's id instead of the whole toy object
+    Birthday.objects.get(id=birthday_id).ideas.add(giftideas_id)
     return redirect('detail', birthday_id=birthday_id)
