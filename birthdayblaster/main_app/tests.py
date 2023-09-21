@@ -33,7 +33,7 @@ class BirthdayReminderTestCase(TestCase):
             last_name="User",
             date=future_date,
             ###
-            email="r.tom.sears@gmail.com",  ### Test email address to receive test email notification ###
+            email="jacquelinepineda48@gmail.com",  ### Test email address to receive test email notification ###
             ###
             user=test_user
         )

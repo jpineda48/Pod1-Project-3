@@ -1,6 +1,4 @@
-import uuid
-import boto3
-import os
+
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -13,6 +11,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from.models import Birthday, GiftIdea, Photo
+
+import uuid
+import boto3
+import os
 
 #  -----------------------------------------
 
@@ -78,8 +80,10 @@ class BirthdayDelete(LoginRequiredMixin, DeleteView):
   model = Birthday
   success_url = '/birthdays'
 
+
 class GiftList(LoginRequiredMixin, ListView):
    model=GiftIdea
+   template_name= 'gifts/detail.html'
 
 class GiftDetail(LoginRequiredMixin, DeleteView):
    model=GiftIdea
@@ -87,10 +91,26 @@ class GiftDetail(LoginRequiredMixin, DeleteView):
 class GiftCreate(LoginRequiredMixin, CreateView):
    model= GiftIdea
    fields = '__all__'
+   success_url = '/birthdays'
+
+ 
+
+   def form_valid(self, form):
+    form.instance.user = self.request.user 
+    birthday_id = self.kwargs['birthday_id']
+    new_gift= form.save(commit=False)
+    new_gift.giftideas_
+    print('this is the ideas_pk', birthday_id)
+    new_gift.save()
+    Birthday.objects.get(id=birthday_id).ideas.add(31)
+    # form.instance.ideas = self.request.birthday
+    return super().form_valid(form)
 
 class GiftUpdate(LoginRequiredMixin, UpdateView):
    model=GiftIdea
    fields= '__all__'
+   success_url = '/gifts'
+
 
 class GiftDelete(LoginRequiredMixin, DeleteView):
    model = GiftIdea
