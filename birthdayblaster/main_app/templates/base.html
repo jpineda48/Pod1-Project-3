@@ -36,8 +36,9 @@
       <div class="nav-wrapper">
         <ul>
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;<span id="logo">Birthday </span><span id="blaster">Blaster</span></a></li>
+          <a href="" data-target="mobile-demo" class="sidenav-trigger right"><i class="large material-icons">menu</i></a>
         </ul>
-        <ul class="right">
+        <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'about' %}" id="navlist">About</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'birthdays_create' %}" id="navlist">Add A Birthday</a></li>
@@ -50,7 +51,20 @@
         </ul>
       </div>
     </nav>
+    <ul class="sidenav-trigger hide-on-med-and-down" id="mobile-demo">
+      <li><a href="{% url 'about' %}" id="navlist"></a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'birthdays_create' %}" id="navlist"></a></li>
+        <li><a href="{% url 'index' %}" id="navlist"></a></li>
+        <li><a href="{% url 'logout' %}" id="navlist"></a></li>
+      {% else %}
+        <li><a href="{% url 'signup' %}" id="navlist"></a></li>
+        <li><a href="{% url 'login' %}" id="navlist"></a></li>
+      {% endif %}
+    </ul>
   </header>
+
+
   <main class="container">
     {% block content %}
     {% endblock %}
