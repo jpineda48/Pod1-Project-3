@@ -11,28 +11,26 @@ def send_birthday_reminders():
     upcoming_birthdays = Birthday.objects.filter(date__range=[today, next_30_days])
 
     for birthday in upcoming_birthdays:
-        # Create the email content
+        # Reminder email content
         subject = 'Upcoming Birthday Reminder'
         message = f"Don't forget, {birthday.first_name}'s birthday is on {birthday.date}!"
-        from_email = 'bb.i.r.t.h.d.a.y.b.l.a.s.t.e.rr@gmail.com'  # Update with your email
-        to_email = birthday.email  # Email of the birthday person
+        from_email = 'bb.i.r.t.h.d.a.y.b.l.a.s.t.e.rr@gmail.com'
+        to_email = birthday.email  # Email of user
 
-        # Create a message container
         msg = MIMEMultipart()
         msg['From'] = from_email
         msg['To'] = to_email
         msg['Subject'] = subject
 
-        # Attach the message
         msg.attach(MIMEText(message, 'plain'))
 
-        # Connect to the SMTP server (e.g., Gmail)
+        # Connection to email SMTP server (currently Gmail)
         try:
             smtp_server = smtplib.SMTP('smtp.gmail.com', 587)
             smtp_server.starttls()
-            smtp_server.login('bb.i.r.t.h.d.a.y.b.l.a.s.t.e.rr@gmail.com', 'rhyn yrpe cigl vnfq')  # Update with your credentials
+            smtp_server.login('bb.i.r.t.h.d.a.y.b.l.a.s.t.e.rr@gmail.com', 'rhyn yrpe cigl vnfq') # Credentials (username, passkey)
 
-            # Send the email
+            # Send email
             smtp_server.sendmail(from_email, to_email, msg.as_string())
             smtp_server.quit()
             print(f"Email reminder sent for {birthday.first_name}'s birthday.")
