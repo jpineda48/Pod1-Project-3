@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="" method="POST">
+<br>
+<br>
+<form action="" method="POST" class="card">
     <!-- Django requires the following for security purposes -->
     {% csrf_token %}
     <table>
       <!-- Render the inputs inside of <tr>s & <td>s -->
       {{ form.as_table }}
     </table>
-    <input type="submit" value="Submit!" class="btn">
+    <div class="row">
+      <input type="submit" value="Submit!" class="waves-effect waves-light btn col s3 offset-s9 #ff80ab pink accent-1" id="add-submit">
+    </div>
   </form>
   {% endblock %}

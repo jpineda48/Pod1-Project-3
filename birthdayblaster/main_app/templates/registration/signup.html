@@ -2,9 +2,6 @@
 {% block content %}
 
 <h1>Sign Up</h1>
-
-<p class="red-text">{{ error_message }}</p>
-
 <form method="POST" action="{% url 'signup' %}">
   {% csrf_token %}
   {{ form.username.label_tag }} {{ form.username }}
@@ -13,5 +10,5 @@
   {{ form.password2.label_tag }} {{ form.password2 }}
   <input type="submit" class="btn-large white-text center-align #ff80ab pink accent-1" value="Sign Up">
 </form>
-
+<p class="red-text">{{ error_message }}</p>
 {% endblock %}

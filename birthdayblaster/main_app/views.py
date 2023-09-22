@@ -68,7 +68,7 @@ def signup(request):
 
 class BirthdayCreate(LoginRequiredMixin, CreateView):
   model = Birthday
-  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes', 'alert']
+  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes']
   # fields = '__all__'
 
   def form_valid(self, form):
@@ -80,7 +80,7 @@ class BirthdayCreate(LoginRequiredMixin, CreateView):
 class BirthdayUpdate(LoginRequiredMixin, UpdateView):
   model = Birthday
   # Let's disallow the renaming of a cat by excluding the name field!
-  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes', 'alert']
+  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes']
 
 class BirthdayDelete(LoginRequiredMixin, DeleteView):
   model = Birthday
