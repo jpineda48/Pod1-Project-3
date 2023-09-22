@@ -15,7 +15,7 @@
       {% csrf_token %}
       <input type="file" name="photo-file" class="choosefile">
       <br><br>
-      <button type="submit" class="btn" id="upload">Upload Photo</button>
+      <button type="submit" class="btn white-text center-align #fdd835 yellow darken-1" id="upload">Upload Photo</button>
   </form>
 </div>
   
@@ -30,8 +30,8 @@
     </div>
 
   <div class="card-action center-align">
-    <a href="{% url 'birthdays_update' birthday.id %}">Edit</a>
-    <a href="{% url 'birthdays_delete' birthday.id %}">Delete</a>
+    <a href="{% url 'birthdays_update' birthday.id %}" class="waves-effect waves-light btn #448aff blue accent-2">Edit</a>
+    <a href="{% url 'birthdays_delete' birthday.id %}" class="waves-effect waves-light btn #ff80ab pink accent-1">Delete</a>
   </div>
   <hr>
     
