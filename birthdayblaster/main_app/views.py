@@ -7,6 +7,7 @@ from django.views.generic import ListView, DetailView
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from birthdayblaster.forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -49,7 +50,7 @@ def signup(request):
     if request.method == 'POST':
         # This is how to create a 'user' form object
         # that includes the data from the browser
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST) # Uses custom form to capture user's email
         if form.is_valid():
         # This will add the user to the database
             user = form.save()
@@ -57,9 +58,9 @@ def signup(request):
             login(request, user)
             return redirect('index')
     else:
+        # A bad POST or a GET request, so render signup.html with an empty form
         error_message = 'Invalid sign up - try again'
-    # A bad POST or a GET request, so render signup.html with an empty form
-    form = UserCreationForm()
+    form = CustomUserCreationForm()  # Use the custom form
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
@@ -67,7 +68,7 @@ def signup(request):
 
 class BirthdayCreate(LoginRequiredMixin, CreateView):
   model = Birthday
-  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes', 'alert']
+  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes']
   # fields = '__all__'
 
   def form_valid(self, form):
@@ -77,7 +78,7 @@ class BirthdayCreate(LoginRequiredMixin, CreateView):
 class BirthdayUpdate(LoginRequiredMixin, UpdateView):
   model = Birthday
   # Let's disallow the renaming of a cat by excluding the name field!
-  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes', 'alert']
+  fields = ['first_name', 'last_name', 'date', 'relationship', 'address', 'phone_number', 'email', 'notes']
 
 class BirthdayDelete(LoginRequiredMixin, DeleteView):
   model = Birthday

@@ -36,8 +36,9 @@
       <div class="nav-wrapper">
         <ul>
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;<span id="logo">Birthday </span><span id="blaster">Blaster</span></a></li>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="large material-icons">menu</i></a>
         </ul>
-        <ul class="right">
+        <ul class="right hide-on-med-and-down">
           <li><a href="{% url 'about' %}" id="navlist">About</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'birthdays_create' %}" id="navlist">Add A Birthday</a></li>
@@ -50,7 +51,19 @@
         </ul>
       </div>
     </nav>
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="{% url 'about' %}" id="navlist">About</a></li>
+      {% if user.is_authenticated %}
+        <li><a href="{% url 'birthdays_create' %}" id="navlist">Add A Birthday</a></li>
+        <li><a href="{% url 'index' %}" id="navlist">View My Birthdays</a></li>
+        <li><a href="{% url 'logout' %}" id="navlist">Log Out</a></li>
+      {% else %}
+        <li><a href="{% url 'signup' %}" id="navlist">Sign Up</a></li>
+        <li><a href="{% url 'login' %}" id="navlist">Log In</a></li>
+      {% endif %}
+    </ul>
   </header>
+
   <main class="container">
     {% block content %}
     {% endblock %}
@@ -58,5 +71,14 @@
   <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2023 Birthday Blaster &nbsp;</div>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav')
+      var instances = M.Sidenav.init(elems)
+    })
+  </script>
+
 </body>
 </html>
+

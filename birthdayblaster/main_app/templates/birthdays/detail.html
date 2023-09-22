@@ -15,6 +15,7 @@
       {% csrf_token %}
       <input type="file" name="photo-file" class="choosefile">
       <br><br>
+
       <button type="submit" class="btn" id="upload">Upload Photo</button>
       </form>
     </div>
@@ -24,17 +25,37 @@
       <p>Notes about {{birthday.first_name}}: {{birthday.notes}}</p>
   </div>
 
-  <div class="card-action center-align">
-    <a href="{% url 'birthdays_update' birthday.id %}">Edit</a>
-    <a href="{% url 'birthdays_delete' birthday.id %}">Delete</a>
+
+      <button type="submit" class="btn white-text center-align #fdd835 yellow darken-1" id="upload">Upload Photo</button>
+    </form>
   </div>
+      <h3 class="center-align">{{ birthday.first_name }} {{ birthday.last_name }}</h3>
+      <p class="bday-info2 center-align">Birthday: {{ birthday.date }}</p>
+      <p class="bday-info center-align">{{ birthday.relationship }}</p>
+      <p class="bday-info center-align">NOTES: {{birthday.notes}} {{birthday.delivery_method}}</p>
+  </div>
+<br>
+
+  <div class="card-action center-align">
+    <a href="{% url 'birthdays_update' birthday.id %}" class="waves-effect waves-light btn-large #448aff blue accent-2">Edit</a>
+    <a href="{% url 'birthdays_delete' birthday.id %}" class="waves-effect waves-light btn-large #ff80ab pink accent-1">Delete</a>
+  </div>
+  <br>
   <hr>
   
   
 <div class="col s6">
+
   <h3>Celebrate {{birthday.first_name }}!</h3>
   <p>List some gift ideas or some of your favorite things about {{birthday.first_name }}</p>
     {% for idea in birthday.giftidea_set.all %}
+
+  <h3>Show {{birthday.first_name }} some love!</h3>
+  <p class="bday-info center-align">List some gift ideas or your favorite things about {{birthday.first_name }}!</p>
+
+  {% if ideas.count %}
+    {% for idea in ideas.all %}
+
       <div class="card">
         <div class="card-content">
           <span class="card-title">
@@ -50,6 +71,7 @@
       </div>
     {% endfor %}
 </div>
+
 
 <form action="{% url 'add_giftidea' birthday.id %}" method="POST">
   {% csrf_token %}
@@ -70,4 +92,9 @@
 {% if birthday.phone_number %}
 <p>Phone Number: {{birthday.phone_number}}</p>
 {% endif %}
+
+<a href="{% url 'gifts_create' birthday.id %}" class="waves-effect waves-light btn #ff80ab pink accent-1" id="navlist">Add A Gift Idea</a>
+<br>
+<br>
+
 {% endblock %}
