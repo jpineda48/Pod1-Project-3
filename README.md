@@ -7,6 +7,7 @@ Birthday Blaster is a fun and festive event reminder application, designed to he
 - Tom: Backend Manager, Documenter, Functions
 - Jacqueline: Frontend & Database Manager, CSS, Design & Layout
 - Dacey: Git Manager, Scrum Master, Planning, Styling
+- Trello Planning: https://trello.com/b/51Fsurn1/birthday-blaster
 
 #### Technology Used:
 - Python
