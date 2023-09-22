@@ -104,8 +104,7 @@ class GiftCreate(LoginRequiredMixin, CreateView):
     birthday_id = self.kwargs['birthday_id']
     new_gift= form.save(commit=False)
     print('FORM', new_gift)
-    Birthday.objects.get(id=birthday_id).ideas.add(7
-                                                   )
+    Birthday.objects.get(id=birthday_id).ideas.add(new_gift)
     # form.instance.ideas = self.request.birthday
     return super().form_valid(form)
 
