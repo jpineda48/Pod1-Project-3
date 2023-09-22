@@ -4,9 +4,9 @@
 Birthday Blaster is a fun and festive event reminder application, designed to help you remember all those birthdays that have fallen off your radar. How many times have you forgotten to wish a loved one, friend, or co-worked “happy birthday?” Too many times to count! With Birthday Blaster, set up automated email reminders at personalized intervals to ensure you don’t forget anymore birthdays! You can also add important information and details about each special person, such as favorite colors, interests, hobbies, gift ideas, location,and more!
 
 #### Team: The Blast Squad 🎉 💌
-- Tom: Backend Manager, Documenter, Functions
+- Tom: Backend Manager, Documenter, Functions, Email Functionality
 - Jacqueline: Frontend & Database Manager, CSS, Design & Layout
-- Dacey: Git Manager, Scrum Master, Planning, Styling
+- Dacey: Git Manager, Scrum Master, Planning, CSS, HTML
 - Trello Planning: https://trello.com/b/51Fsurn1/birthday-blaster
 
 #### Technology Used:
@@ -14,6 +14,7 @@ Birthday Blaster is a fun and festive event reminder application, designed to he
 - Django
 - HTML
 - CSS
+- AWS S3
 - API
 
 ## User Stories
@@ -31,7 +32,8 @@ Birthday Blaster is a fun and festive event reminder application, designed to he
 - As a user, I want the ability to specify the number of days in advance the application will send me a birthday reminder.
 
 ## Overall Design
-- Simple, clean, minimalist design and layout
+- Fun and exciting
+- Party vibes!
 - Navigation bar at the top with quick-access links
 - User-centric design
 
