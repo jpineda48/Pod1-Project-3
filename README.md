@@ -66,6 +66,20 @@ font-family: 'Josefin Sans', sans-serif;
 ## ERD
 ![app erd](https://i.imgur.com/U1qay1h.png)
 
+## MVP SHOWCASE
+![app home](https://i.imgur.com/fh76yAV.png)
+![app index](https://i.imgur.com/hiBNYh9.png)
 
+### Future Versions
+- Styled template for email blast
+- User can choose interval of email delivery
+- User can add gift ideas from third party
+- Birthdays that have passed will move to the bottom of the list on index page
+- Holidays and other events
+- Styling and functionality improvements
+- Google Maps API to show addresses
+
+### Deployed App
+Birthday Blaster
 
 
